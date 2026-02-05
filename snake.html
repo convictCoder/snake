@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Viper (Cyberpunk Snake)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load custom styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-lg mx-auto bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-2xl shadow-gray-700/50">
+        <!-- Game Header -->
+        <h1 class="text-4xl font-extrabold text-center mb-4 uppercase neon-text tracking-widest">Neon Viper</h1>
+
+        <!-- Scoreboard and Status -->
+        <div class="flex justify-between items-center mb-4 font-mono text-lg px-2">
+            <div id="scoreDisplay" class="neon-text">Score: 0</div>
+            <div id="statusMessage" class="text-yellow-400 font-bold">Press Enter to Start</div>
+        </div>
+
+        <!-- Game Canvas -->
+        <div class="flex justify-center">
+            <canvas id="gameCanvas" width="400" height="400" class="rounded-lg"></canvas>
+        </div>
+
+        <!-- Mobile/Touch Controls -->
+        <div class="mt-6">
+            <h2 class="text-center text-sm uppercase text-gray-400 mb-3 tracking-widest">Touch Controls</h2>
+            <div class="grid grid-cols-3 gap-2 w-48 mx-auto touch-grid">
+                <button class="touch-up neon-button p-3 rounded-lg text-xl" onclick="setDirection('UP')">▲</button>
+                <button class="touch-left neon-button p-3 rounded-lg text-xl" onclick="setDirection('LEFT')">◀</button>
+                <div class="w-full h-full"></div>
+                <button class="touch-right neon-button p-3 rounded-lg text-xl" onclick="setDirection('RIGHT')">►</button>
+                <button class="touch-down neon-button p-3 rounded-lg text-xl" onclick="setDirection('DOWN')">▼</button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal (Hidden by default) -->
+        <div id="gameOverModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center p-4">
+            <div class="bg-gray-900 p-8 rounded-xl border-4 border-red-500 shadow-2xl shadow-red-700/50 text-center w-full max-w-sm">
+                <h2 class="text-5xl font-extrabold text-red-500 mb-4 tracking-wider">GAME OVER</h2>
+                <p class="text-xl text-white mb-6">Your final score is: <span id="finalScore" class="neon-text font-bold">0</span></p>
+                <button id="restartButton" class="neon-button px-6 py-3 rounded-full text-lg font-bold w-full" onclick="restartGame()">
+                    RESTART (ENTER)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load game script -->
+    <script src="script.js"></script>
+</body>
+</html>

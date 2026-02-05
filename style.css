@@ -1,0 +1,44 @@
+/* Custom CSS for a deep, dark cyberpunk feel and canvas sizing */
+body {
+    font-family: 'Inter', monospace;
+    background-color: #0d0d0d; /* Very dark background */
+}
+
+#gameCanvas {
+    border: 4px solid #333;
+    box-shadow: 0 0 15px rgba(0, 255, 128, 0.7), /* Neon green glow effect */
+                0 0 5px rgba(0, 255, 128, 0.5);
+    background-color: #111111; /* Dark inner canvas */
+    cursor: pointer;
+    touch-action: none; /* Prevent unwanted mobile scrolling/zooming */
+}
+
+.neon-text {
+    color: #00ff80; /* Neon Green */
+    text-shadow: 0 0 5px #00ff80, 0 0 10px #00a04c;
+}
+
+.neon-button {
+    background-color: #222;
+    border: 2px solid #00ff80;
+    box-shadow: 0 0 8px #00ff80;
+    transition: all 0.1s;
+}
+
+.neon-button:hover {
+    background-color: #00ff80;
+    color: #111;
+    box-shadow: 0 0 15px #00ff80;
+}
+
+.touch-grid {
+    grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+}
+
+.touch-up    { grid-area: up; }
+.touch-down  { grid-area: down; }
+.touch-left  { grid-area: left; }
+.touch-right { grid-area: right; }
