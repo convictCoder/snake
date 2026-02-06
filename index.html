@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Neon Viper">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="description" content="Neon Viper - A cyberpunk snake game with neon aesthetics">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%230d0d0d' width='180' height='180'/><text x='50%' y='50%' font-size='80' fill='%2300ff80' text-anchor='middle' dominant-baseline='central' font-weight='bold'>🐍</text></svg>">
+    <link rel="manifest" href="manifest.json">
     <title>Neon Viper (Cyberpunk Snake)</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,5 +59,11 @@
 
     <!-- Load game script -->
     <script src="script.js"></script>
+    <script>
+        // Register service worker for offline support
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(() => {});
+        }
+    </script>
 </body>
 </html>

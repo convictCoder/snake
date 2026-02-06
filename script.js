@@ -4,6 +4,10 @@ const GAME_SPEED = 150;
 const SWIPE_THRESHOLD = 20;
 const SCORE_INCREMENT = 10;
 
+// iOS detection
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+const isAndroid = /Android/.test(navigator.userAgent);
+
 // DOM Elements
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -36,6 +40,13 @@ let touch = {
     endX: 0,
     endY: 0,
 };
+
+// Haptic feedback helper
+function vibrate(pattern = 10) {
+    if (navigator.vibrate) {
+        navigator.vibrate(pattern);
+    }
+}
 
 // Game Functions
 
@@ -78,6 +89,7 @@ function gameLoop() {
     if (head.x === state.food.x && head.y === state.food.y) {
         state.score += SCORE_INCREMENT;
         ui.scoreDisplay.textContent = `Score: ${state.score}`;
+        vibrate([50, 30, 50]); // Haptic feedback for eating food
         generateFood();
     } else {
         state.snake.pop();
@@ -147,6 +159,7 @@ function checkCollision() {
 function endGame() {
     clearInterval(state.gameLoopInterval);
     state.isPlaying = false;
+    vibrate([100, 50, 100, 50, 200]); // Collision haptic feedback
     ui.finalScore.textContent = state.score;
     ui.gameOverModal.style.display = 'flex';
 }
@@ -237,6 +250,7 @@ function handleGesture() {
         return;
     }
 
+    vibrate(15); // Light haptic feedback for swipe
     if (isHorizontal) {
         setDirection(deltaX > SWIPE_THRESHOLD ? 'RIGHT' : 'LEFT');
     } else {
