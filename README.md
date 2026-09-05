@@ -4,7 +4,7 @@ A sleek, neon-themed Snake game with a cyberpunk aesthetic. Built with vanilla H
 
 ## Play Online
 
-🎮 **[Play Neon Viper](https://alana206.github.io/snake/)**
+🎮 **[Play Neon Viper](https://convictcoder.github.io/snake/)**
 
 ## Features
 
@@ -24,7 +24,7 @@ A sleek, neon-themed Snake game with a cyberpunk aesthetic. Built with vanilla H
 
 1. Clone the repository
 2. Open `index.html` in a web browser
-3. Or visit the live version: https://alana206.github.io/snake/
+3. Or visit the live version: https://convictcoder.github.io/snake/
 
 ## Files
 
